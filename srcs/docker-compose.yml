@@ -2,13 +2,17 @@ version: "3"
 
 services:
    ubuntu:
-        image: ubuntu
+        image: ub
         container_name: ubuntu
+        build: ./
         ports:
             - 3333:3333
         restart: on-failure
         volumes:
-            repo:/home/user/ft_containers
+            - repo:/home/ft_containers
+            - clang:/clang_15
+        working_dir: /home/ft_containers
+        tty: true
 
 volumes:
     repo:
@@ -16,4 +20,10 @@ volumes:
         driver_opts:
             type: none
             o: bind
-            device: /home/Users/albgarci/Documents/ft_containers
+            device: $HOME/Documents/ft_containers
+    clang:
+        driver: local
+        driver_opts:
+            type: none
+            o: bind
+            device: $HOME/Documents/docker-gcc-clang/srcs/clang_15

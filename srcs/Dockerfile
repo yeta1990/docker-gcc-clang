@@ -2,23 +2,35 @@
 
 FROM ubuntu:18.04
 
+#FROM debian:buster
+
 RUN apt-get update 
 RUN apt-get install -y \
  xz-utils \
  curl \
  build-essential \
+ zsh \
+ fontconfig \
+ zip \
+ git \
  && rm -rf /var/lib/apt/lists/*
 
-# RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz \
- #| tar -xJC . && \
- #mv clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04 clang_10 && \
-# echo "export PATH=/clang_10/bin:$PATH" >> ~/.bashrc && \
-# echo "export LD_LIBRARY_PATH=/clang_10/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
+RUN cd ~ && curl -SL --output Meslo.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip && \
+	mkdir -p .fonts && \
+	unzip Meslo.zip -d .fonts && \
+	cd .fonts && \
+	rm *Windows* && \
+	cd ~ && \
+	rm Meslo.zip && \
+	fc-cache -fv
 
-RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.6/clang+llvm-15.0.6-x86_64-linux-gnu-ubuntu-18.04.tar.xz \
- | tar -xJC . && \
- mv clang+llvm-15.0.6-x86_64-linux-gnu-ubuntu-18.04 clang_15 && \
- echo "export PATH=/clang_15/bin:$PATH" >> ~/.bashrc && \
- echo "export LD_LIBRARY_PATH=/clang_15/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
+RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k && \
+	echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc && \
+	echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
 
-CMD [ "/bin/bash" ]
+COPY powerlevel10k.zsh-theme ~/powerlevel10k/powerlevel10k.zsh-theme
+COPY .p10k.zsh ~
+RUN echo "export PATH=/clang_15/bin:$PATH" >> ~/.zshrc && \
+ echo "export LD_LIBRARY_PATH=/clang_15/lib:$LD_LIBRARY_PATH" >> ~/.zshrc
+
+#CMD [ "/bin/zsh" ]

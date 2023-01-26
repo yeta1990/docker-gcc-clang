@@ -1,7 +1,8 @@
 
 
 all:
-	@cd srcs/ && docker-compose build && docker-compose up -d
+	@cd srcs && ./download-clang.sh
+	@cd srcs/ && docker-compose build && docker-compose up -d #&& docker run -it --rm -v /home/albgarci/Documents/ft_containers/:/home/cont ubuntu
 
 build:
 	@cd srcs/ && docker-compose build --no-cache
