@@ -20,7 +20,7 @@ volumes:
         driver_opts:
             type: none
             o: bind
-            device: /Users/albgarci/Documents/ft_containers
+            device: replace_me
     clang:
         driver: local
         driver_opts:

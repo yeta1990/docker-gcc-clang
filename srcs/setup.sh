@@ -1,6 +1,6 @@
 ###########
 
-#replace the content of this variable to 
+#replace the content of this variable to the path of the folder you want to work with
 DLC_WORK_DIR="$HOME/Documents/ft_containers"
 
 ##############
