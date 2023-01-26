@@ -1,5 +1,3 @@
-
-
 all:
 	@cd srcs && ./download-clang.sh
 	@cd srcs/ && docker-compose build && docker-compose up -d #&& docker run -it --rm -v /home/albgarci/Documents/ft_containers/:/home/cont ubuntu
@@ -20,6 +18,8 @@ clean: down
 	@docker system prune -af
 
 fclean:	clean
+	@docker volume rm srcs_repo
+	@docker volume rm srcs_clang
 
 space:
 	@docker system df

@@ -26,4 +26,4 @@ volumes:
         driver_opts:
             type: none
             o: bind
-            device: $HOME/Documents/docker-gcc-clang/srcs/clang_15
+            device: $PWD/clang_15

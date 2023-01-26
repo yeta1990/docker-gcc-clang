@@ -2,8 +2,6 @@
 
 FROM ubuntu:18.04
 
-#FROM debian:buster
-
 RUN apt-get update 
 RUN apt-get install -y \
  xz-utils \
@@ -28,9 +26,9 @@ RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerleve
 	echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc && \
 	echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
 
-COPY powerlevel10k.zsh-theme ~/powerlevel10k/powerlevel10k.zsh-theme
-COPY .p10k.zsh ~
+ADD powerlevel10k.zsh-theme ~/powerlevel10k/powerlevel10k.zsh-theme
+ADD .p10k.zsh /root/.p10k.zsh
 RUN echo "export PATH=/clang_15/bin:$PATH" >> ~/.zshrc && \
- echo "export LD_LIBRARY_PATH=/clang_15/lib:$LD_LIBRARY_PATH" >> ~/.zshrc
+ echo "export LD_LIBRARY_PATH=/clang_15/lib:$LD_LIBRARY_PATH" >> ~/.zshrc && \
+ echo "export TERM=xterm-256color" >> ~/.zshrc
 
-#CMD [ "/bin/zsh" ]
