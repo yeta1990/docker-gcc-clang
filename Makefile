@@ -18,7 +18,7 @@ clean: down
 	@docker system prune -af
 
 fclean:	clean
-	@cd srcs/ && rm -rf clang_15 && rm -rf clang.tar.xz
+	@cd srcs/ && rm -rf clang_15 && rm -rf clang.tar.xz && rm docker-compose.yml
 	@docker volume rm srcs_repo
 	@docker volume rm srcs_clang
 
