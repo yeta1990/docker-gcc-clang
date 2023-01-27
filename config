@@ -1,3 +1,0 @@
-export DLC_WORK_VOLUME_ORIGIN="$HOME/Documents/ft_containers"
-export DLC_WORK_VOLUME_DESTINATION="/home/ft_containers"
-export DLC_WORKING_DIR="/home/ft_containers"
