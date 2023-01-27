@@ -1,5 +1,6 @@
 ![screenshot](https://user-images.githubusercontent.com/65416560/214981016-21e61b0c-eaea-4d11-aabe-c7c5dedc92ff.png)
 
+# Docker container with gcc and clang
 Docker container based in ubuntu18 to compile with gcc7 and clang15
 - zsh + p10k pre-configured
 - mounts a volume in your preferred working directory so you can edit outside the container and compile and execute in it.
