@@ -9,9 +9,9 @@ services:
             - 3333:3333
         restart: on-failure
         volumes:
-            - repo:/home/ft_containers
+            - repo:$DLC_WORK_VOLUME_DESTINATION
             - clang:/clang_15
-        working_dir: /home/ft_containers
+        working_dir: $DLC_WORKING_DIR
         tty: true
 
 volumes:
@@ -20,7 +20,7 @@ volumes:
         driver_opts:
             type: none
             o: bind
-            device: replace_me
+            device: $DLC_WORK_VOLUME_ORIGIN
     clang:
         driver: local
         driver_opts:
