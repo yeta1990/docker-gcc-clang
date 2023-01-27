@@ -1,6 +1,6 @@
 
-source ../config
-envsubst < docker-compose-template > docker-compose.yml
+#source ../config
+#envsubst < docker-compose-template > docker-compose.yml
 
 if [ ! -f clang+llvm-15.0.6-x86_64-linux-gnu-ubuntu-18.04.tar.xz ] && [ ! -f clang.tar.xz ] 
 then
