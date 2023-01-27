@@ -9,9 +9,8 @@ services:
             - 3333:3333
         restart: on-failure
         volumes:
-            - repo:$DLC_WORK_VOLUME_DESTINATION
-            - clang:/clang_15
-        working_dir: $DLC_WORKING_DIR
+            - repo:${DLC_WORK_VOLUME_DESTINATION}
+        working_dir: ${DLC_WORKING_DIR}
         tty: true
 
 volumes:
@@ -20,10 +19,4 @@ volumes:
         driver_opts:
             type: none
             o: bind
-            device: $DLC_WORK_VOLUME_ORIGIN
-    clang:
-        driver: local
-        driver_opts:
-            type: none
-            o: bind
-            device: $PWD/clang_15
+            device: ${DLC_WORK_VOLUME_ORIGIN}

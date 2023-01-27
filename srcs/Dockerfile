@@ -1,5 +1,6 @@
 #https://baykara.medium.com/installing-clang-10-in-a-docker-container-4c24a4538af2
 
+#FROM ubuntu:latest
 FROM ubuntu:18.04
 
 RUN apt-get update 
@@ -11,6 +12,8 @@ RUN apt-get install -y \
  fontconfig \
  zip \
  git \
+ clang \
+ vim \
  && rm -rf /var/lib/apt/lists/*
 
 RUN cd ~ && curl -SL --output Meslo.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip && \
