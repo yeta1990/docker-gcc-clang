@@ -4,21 +4,20 @@ Docker container based in ubuntu18 to compile with gcc7 and clang15 on a 42 Madr
 
 ## Requirements
 - Docker installed and running
-- This repository must be in /goinfre/your_user/
+- This repository must be in /goinfre/your_user/: `git clone https://github.com/yeta1990/docker-gcc-clang /goinfre/$USER/docker-gcc-clang`
 
 ## Config
 ### Docker desktop, Preferences->Resources:
 - Advanced->Disk image location: /goinfre/your_user
 - File sharing: /goinfre/your_user
 
-### In srcs/setup.sh:
-- Replace DLC_WORK_DIR variable with the path you want to work with in your container. (Only valid during the first build - read the *how to* section).
+### Replace environment variables in file `config`: 
+- DLC_WORK_VOLUME_ORIGIN: path of the folder where your code is in your host. i.e.: $HOME/Documents/libft
+- DLC_WORK_VOLUME_DESTINATION: path of the folder where you will found your code in your container. i.e: /home/libft
+- DLC_WORKING_DIR: path of the folder where you will enter when you open a new terminal of the container. i.e.: /home/libft
 
 ### How to
-- change the mounted volume: edit docker-compose.yml, change volume->repo property and 'device' value of 'repo' volume 
-- build and run the container: go to the main folder of this repository and type `make`
+- build and run the container: go to the main folder of this repository and type `make`. Make sure you have already edited the `config` file with your paths before you start building the container.
 - open a terminal with the running container: type `docker exec -it ubuntu /bin/zsh`
-- change the default folder where you enter when you open a new terminal: edit docker-compose.yml, 'working_dir'
 - stop the container: `make stop`
 - clean everything: `make fclean`
-
