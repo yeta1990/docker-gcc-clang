@@ -8,7 +8,8 @@ Docker container based in ubuntu18 to compile with gcc7 and clang15
 
 ## Requirements
 - Docker installed and running
-- If you are working in a 42 Mac, this repository should be placed in /goinfre/your_user/: `git clone https://github.com/yeta1990/docker-gcc-clang /goinfre/$USER/docker-gcc-clang`
+- `git clone https://github.com/yeta1990/docker-gcc-clang /sgoinfre/$USER/docker-gcc-clang`
+- (optional) [MesloLGS font](https://github.com/romkatv/powerlevel10k#fonts)/[Nerd fonts] (https://github.com/ryanoasis/nerd-fonts#macos-os-x)installed
 
 ## Config
 #### Replace environment variables in `srcs/.env` file: 
