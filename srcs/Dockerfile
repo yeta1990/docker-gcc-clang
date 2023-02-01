@@ -5,7 +5,6 @@ FROM ubuntu:18.04
 
 RUN apt-get update 
 RUN apt-get install -y \
- xz-utils \
  curl \
  build-essential \
  zsh \
@@ -14,6 +13,7 @@ RUN apt-get install -y \
  git \
  clang \
  vim \
+ valgrind \
  && rm -rf /var/lib/apt/lists/*
 
 RUN cd ~ && curl -SL --output Meslo.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip && \
@@ -33,5 +33,8 @@ ADD powerlevel10k.zsh-theme ~/powerlevel10k/powerlevel10k.zsh-theme
 ADD .p10k.zsh /root/.p10k.zsh
 RUN echo "export PATH=/clang_15/bin:$PATH" >> ~/.zshrc && \
  echo "export LD_LIBRARY_PATH=/clang_15/lib:$LD_LIBRARY_PATH" >> ~/.zshrc && \
- echo "export TERM=xterm-256color" >> ~/.zshrc
+ echo "export TERM=xterm-256color" >> ~/.zshrc && \
+ echo "alias g='g++ -Wall -Wextra -Werror'" >> ~/.zshrc && \
+ echo "alias c='clang++ -Wall -Wextra -Werror'" >> ~/.zshrc && \
+ echo "alias e='g srcs/test*.cpp > /dev/pts/1; c srcs/test*.cpp > /dev/pts/2'" >> ~/.zshrc
 
