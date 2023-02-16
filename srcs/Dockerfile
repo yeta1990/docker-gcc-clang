@@ -34,4 +34,4 @@ ADD .p10k.zsh /root/.p10k.zsh
 RUN echo "export PATH=/clang_15/bin:$PATH" >> ~/.zshrc && \
  echo "export LD_LIBRARY_PATH=/clang_15/lib:$LD_LIBRARY_PATH" >> ~/.zshrc && \
  echo "export TERM=xterm-256color" >> ~/.zshrc
-
+ENV ASAN_SYMBOLIZER_PATH=/usr/lib/llvm-6.0/bin/llvm-symbolizer
