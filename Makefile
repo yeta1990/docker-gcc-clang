@@ -5,7 +5,7 @@ build:
 	@cd srcs/ && docker-compose build --no-cache
 
 up:
-	@cd srcs/ && docker-compose up -d
+	@cd srcs/ && docker rmi -f $(shell docker images -f "dangling=true" -q) && docker-compose up -d
 
 down:
 	@cd srcs/ && docker-compose down
