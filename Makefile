@@ -1,11 +1,14 @@
-all:
-	@cd srcs/ && docker-compose build && docker-compose up -d
+all: clean build
+	@cd srcs/ && docker-compose up -d
 
 build:
+	@cd srcs/ && docker-compose build 
+
+fbuild: 
 	@cd srcs/ && docker-compose build --no-cache
 
 up:
-	@cd srcs/ && docker rmi -f $(shell docker images -f "dangling=true" -q) && docker-compose up -d
+	@cd srcs/ && docker rmi $(shell docker images -f "dangling=true" -qa) && docker-compose up -d
 
 down:
 	@cd srcs/ && docker-compose down
@@ -14,11 +17,13 @@ logs:
 	@cd srcs/ && docker-compose logs -f
 
 clean: down
-	@docker system prune -af
+	@docker volume prune -f
 
 fclean:	clean
-	@docker volume rm srcs_repo
-	@docker volume rm srcs_clang
+	@docker image rm ubuntu_gcc_clang
+
+prune:
+	@docker system prune -af
 
 space:
 	@docker system df

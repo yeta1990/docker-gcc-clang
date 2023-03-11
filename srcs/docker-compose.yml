@@ -2,19 +2,19 @@ version: "3"
 
 services:
    ubuntu:
-        image: ub
+        image: ubuntu_gcc_clang
         container_name: ubuntu
         build: ./
         ports:
             - 3333:3333
         restart: on-failure
         volumes:
-            - repo:${DLC_WORK_VOLUME_DESTINATION}
+            - ubuntu_gcc_clang:${DLC_WORK_VOLUME_DESTINATION}
         working_dir: ${DLC_WORKING_DIR}
         tty: true
 
 volumes:
-    repo:
+    ubuntu_gcc_clang:
         driver: local
         driver_opts:
             type: none
