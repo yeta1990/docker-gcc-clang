@@ -16,7 +16,7 @@ Docker container based in ubuntu18 to compile your 42 C and C++ projects with gc
 ## Usage
 - once you have docker installed and running, build and run the container: go to the main folder of this repository and type `make`.
 - open a terminal with the running container: type `docker exec -it ubuntu /bin/zsh` (I recommend to create a bash alias...)
-- stop the container: `make stop`
+- stop the container: `make down`
 - clean everything: `make fclean`
 
 ## (optional) Custom working directory
