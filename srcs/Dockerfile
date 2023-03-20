@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
  vim \
  valgrind \
  neofetch \
+ readline-common \
+ libreadline-dev \
  && rm -rf /var/lib/apt/lists/*
 
 RUN cd ~ && curl -SL --output Meslo.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip && \
