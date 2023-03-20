@@ -6,6 +6,7 @@ Docker container based in ubuntu18 to compile your 42 C and C++ projects with gc
 - mounts a volume in your working directory so you can edit outside the container with vim or VStudio and compile and execute into the ubuntu container.
 - by default, the mounted volume is your whole $HOME directory (although you can change it, see "custom working directory").
 - specially developed for using it in the 42 Madrid iMacs with Catalina.
+- includes readline library, needed to compile Minishell project just adding flag -lreadline.
 
 ## Requirements
 - Docker installed (by the MSC) and running
