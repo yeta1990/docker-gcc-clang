@@ -29,12 +29,17 @@ If you are in any of these situations, this tool is definitely useful for you:
 ## 🖥 Usage
 ### Option 1: the easiest way (1 command, without cloning the repo)
 In your terminal, go to the folder you want to work with and type:
-`docker run -it --rm -v $(PWD):/home/marvin/docker jkutkut/docker4c`
+```zsh
+docker run -it --rm -v $(PWD):/home/marvin/docker jkutkut/docker4c
+```
+<!-- TODO figure out the new name logic -->
 The container stops and is removed once you leave the terminal session.
  
 ### Option 2: option 1 but more comfortable (1 alias, without cloning the repo)
-Feel like a pro adding this alias in your .zshrc
-`alias ubuntu='docker run -it --rm -v $(PWD):/home/marvin/docker jkutkut/docker4c'`
+Feel like a pro adding this alias in your `~/.zshrc`
+```zsh
+alias ubuntu='docker run -it --rm -v $(PWD):/home/marvin/docker jkutkut/docker4c'
+```
  
 Then, you'll only need to type `ubuntu` whenever you want to open a terminal of your ubuntu container.
 The container stops and is removed once you leave the terminal session.
@@ -42,9 +47,11 @@ The container stops and is removed once you leave the terminal session.
 ### Option 3: building the image
 The mounted volume will be your whole $HOME directory. Type:
  
-`git clone https://github.com/yeta1990/docker-gcc-clang /sgoinfre/students/$USER/docker-gcc-clang && cd /sgoinfre/students/$USER/docker-gcc-clang && make`
+```zsh
+git clone https://github.com/yeta1990/docker-gcc-clang /sgoinfre/students/$USER/docker-gcc-clang && cd /sgoinfre/students/$USER/docker-gcc-clang && make
+```
 
-Other actions: 
+Other actions:
 - Open more ubuntu terminals by:
 `docker exec -it ubuntu /bin/zsh`
 - Stop the container: `make down`
