@@ -71,7 +71,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: .
+          context: ./srcs/
           push: true
           tags: yeta1990/gcc-clang-42:latest,yeta1990/gcc-clang-42:${{needs.tag-release.outputs.newtag}}
           labels: ${{ steps.meta.outputs.labels }}
