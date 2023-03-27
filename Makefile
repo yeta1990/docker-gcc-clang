@@ -2,9 +2,9 @@ all: clean build
 	@cd srcs/ && docker-compose up -d
 
 build:
-	@cd srcs/ && docker-compose build 
+	@cd srcs/ && docker-compose build
 
-fbuild: 
+fbuild:
 	@cd srcs/ && docker-compose build --no-cache
 
 up:
