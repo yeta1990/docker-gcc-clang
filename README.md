@@ -1,5 +1,4 @@
-
-![demo](https://user-images.githubusercontent.com/65416560/224544022-22172a6c-17a3-4404-8734-929e88339e4b.gif)
+<img width="870" alt="demo-docker" src="https://user-images.githubusercontent.com/65416560/227916134-dd48b170-4e21-49a2-a617-64661ca0fb10.png">
 
 # 🐳 Ubuntu for 42 computers in a single command
 Docker container based in ubuntu18 to compile your 42 C and C++ projects with gcc7 and clang15.
