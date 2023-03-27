@@ -72,5 +72,3 @@ Other actions:
 
 [Josgarci](https://github.com/PepeGF) has improved the Dockerfile by adding features such as the readline library.
 
-
-
