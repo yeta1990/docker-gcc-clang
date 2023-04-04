@@ -29,7 +29,7 @@ If you are in any of these situations, this tool is definitely useful for you:
 ### Option 1: the easiest way (1 command, without cloning the repo)
 In your terminal, go to the folder you want to work with and type:
 ```zsh
-docker run -it --rm -v $(PWD):/home/marvin/docker yeta1990/gcc-clang-42
+docker run -it --rm -v $PWD:/home/marvin/docker yeta1990/gcc-clang-42
 ```
 <!-- TODO figure out the new name logic -->
 The container stops and is removed once you leave the terminal session.
@@ -37,7 +37,7 @@ The container stops and is removed once you leave the terminal session.
 ### Option 2: option 1 but more comfortable (1 alias, without cloning the repo)
 Feel like a pro adding this alias in your `~/.zshrc`
 ```zsh
-alias ubuntu='docker run -it --rm -v $(PWD):/home/marvin/docker yeta1990/gcc-clang-42'
+alias ubuntu='docker run -it --rm -v $PWD:/home/marvin/docker yeta1990/gcc-clang-42'
 ```
  
 Then, you'll only need to type `ubuntu` whenever you want to open a terminal of your ubuntu container.
